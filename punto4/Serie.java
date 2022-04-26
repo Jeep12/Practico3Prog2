@@ -25,6 +25,9 @@ public class Serie {
     public void addTemporada (Temporada t){
         temporadas.add(t);
     }
+    public ArrayList<Temporada> getTemporadas (){
+        return this.temporadas;
+    }
     public String getTitulo() {
         return titulo;
     }
@@ -56,4 +59,23 @@ public class Serie {
     public void setGenero(String genero) {
         this.genero = genero;
     }
+    public int getTodalVisto(){
+        int totalVisto = 0;
+            for (Temporada temporada: temporadas){
+                totalVisto += temporada.getCapitulosVistos();
+         }
+            return totalVisto;
+    }
+
+    public double getClasifSerie (){
+        double promedio = 0, sumaTotal=0;
+            for (Temporada temporada: temporadas){
+                sumaTotal += temporada.getPromedioClasif();
+            }
+            System.out.println(temporadas.get(1));
+        System.out.println("Suma total del promedio de las temporadas: " + sumaTotal);
+        return promedio;
+
+    }
+
 }

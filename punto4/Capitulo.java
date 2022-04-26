@@ -1,23 +1,25 @@
 package punto4;
 
-public class Capitulo {
+public class  Capitulo {
     private String titulo;
     private String descripcion;
-    private int calificacion;
-    private boolean seVio;
+    private int calificacion = -1;
+    private boolean seVio = false;
 
-    public Capitulo (){
+
+    public Capitulo() {
         this.titulo = " ";
         this.descripcion = " ";
-        this. calificacion = -1;
-        this.seVio = false;
     }
-    public Capitulo (String titulo,String descripcion,int calificacion,boolean seVio){
+
+    public Capitulo(String titulo, String descripcion) {
         this.titulo = titulo;
         this.descripcion = descripcion;
-        this.calificacion = calificacion;
         this.seVio = seVio;
     }
+    // Ingresar la calificación de un episodio. Si el valor ingresado como calificación
+    //no es correcto imprimir un mensaje por pantalla y no cambiar el valor anterior.
+
 
     public String getTitulo() {
         return titulo;
@@ -40,14 +42,28 @@ public class Capitulo {
     }
 
     public void setCalificacion(int calificacion) {
-        this.calificacion = calificacion;
+        if (calificacion <= 5 && calificacion >= 1 ){
+            this.calificacion = calificacion;
+        }else {
+            System.out.println("Error, se puede solamente del 1 al 5");
+        }
+
     }
 
-    public boolean isSeVio() {
+    public boolean getSeVio() {
         return seVio;
     }
 
     public void setSeVio(boolean seVio) {
         this.seVio = seVio;
+    }
+
+    @Override
+    public String toString() {
+        return "Datos del Episodio: " + "\n" +
+                "Titulo: " + this.titulo + "\n" +
+                "Descripción:  " + this.descripcion + "\n" +
+                "Visto: " + " " + this.seVio + "\n" +
+                "Calificación: " + " " + this.calificacion;
     }
 }
